@@ -101,7 +101,7 @@ def loginPage(err):
 @app.route('/Home',methods=['POST','GET'])
 def loginAuth():
     error = None
-    
+
     if request.method == 'POST':
         userInput = request.form['user_input']
         pwd = request.form['pwd']
