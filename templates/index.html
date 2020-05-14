@@ -1,0 +1,210 @@
+<html>
+<head>
+
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>Home</title>
+</head>
+<body>
+<div class="container-fluid mb-5">
+<center>
+{%if user.username %}
+<h2>Welcome, {{user.username}}<h2>
+{% else%}
+<h2>Welcome, Jane Doe<h2>
+{% endif %}
+<br/>
+<h3>Statistical Data<h3>
+</center>
+</div>
+<div class="container">
+  <div class="row mb-4">
+    <div class="col">
+		<table class="table">
+			<thead>
+				<tr>
+				  <th scope="col" colspan="2">Caronavirus(India)</th>
+				</tr>
+				<tr>
+				  <th scope="col">Tag</th>
+				  <th scope="col">Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				  <td>Total World Cases</td>
+				  <td id="world">{{ virus.get('world')}}</td>
+				</tr>
+				<tr>
+				  <td>World's Death Cases</td>
+				  <td id="caronaSubTotal">{{ virus.get('totalDeath') }}</td>
+				</tr>
+				<tr>
+				  <td>World's Recovered Cases</td>
+				  <td id="caronaSubDeath">{{ virus.get('totalRec') }}</td>
+				</tr>
+				<tr>
+				  <td>Total India Cases</td>
+				  <td id="caronaTotal">{{ virus.get('india') }}</td>
+				</tr>
+				<tr>
+				  <td>India's Death Cases</td>
+				  <td id="caronaDeath">{{ virus.get('deathCases') }}</td>
+				</tr>
+				<tr>
+				  <td>India's Recovered Cases</td>
+				  <td id="caronaRecovered">{{ virus.get('recCases') }}</td>
+				</tr>
+				<tr>
+				  <td>India's New Cases</td>
+				  <td id="caronaNew">{{ virus.get('newCases') }}</td>
+				</tr>
+			</tbody>
+		</table>
+    </div>
+    <div class="col">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col" colspan="2">Football</th>
+			    </tr>
+				<tr>
+					<th scope="col">Tag</th>
+					<th scope="col">Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				  <td>Team</td>
+				  <td id="footballTeam">{{ teaminfo.get('name') }}</td>
+				</tr>
+				<tr>
+				  <td>City</td>
+				  <td id="footballCaptain">{{ teaminfo.get('city') }}</td>
+				</tr>
+				<tr>
+				  <td>Manager</td>
+				  <td id="footballManager"> {{ teaminfo.get('manager') }} </td>
+				</tr>
+				<tr>
+				  <td>Chairman</td>
+				  <td id="footballMatch">{{ teaminfo.get('chairman') }}</td>
+				</tr>
+				<tr>
+				  <td>Year Formed</td>
+				  <td id="footballMatch">{{ teaminfo.get('year') }}</td>
+				</tr>
+				<tr>
+				  <td>PL standing</td>
+				  <td id="footballPLStand">No. {{teamtab.get('pos')}}</td>
+				</tr>
+				<tr>
+				  <td>PL wins/losses</td>
+				  <td id="footballPLPoint"><span class="text-info">{{teamtab.get('tots')}}</span> / <span class="text-success">{{teamtab.get('wins')}}</span> / <span class="text-danger">{{teamtab.get('loss')}}</span></td>
+				</tr>
+			</tbody>
+		</table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col" colspan="2">Weather Forecast</th>
+			    </tr>
+				<tr>
+					<th scope="col">Tag</th>
+					<th scope="col">Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				  <td>Place</td>
+				  <td>{{temp.get('place')}}</td>
+				</tr>
+				<tr>
+				  <td>Last Observation</td>
+				  <td>{{temp.get('ob_time')}}</td>
+				</tr>
+				<tr>
+				  <td>Temperature</td>
+				  <td>{{temp.get('temp')}}</td>
+				</tr>
+				<tr>
+				  <td>Wind Speed</td>
+				  <td>{{temp.get('wind_speed')}}</td>
+				</tr>
+				<tr>
+				  <td>Wind Direction</td>
+				  <td>{{temp.get('wind_dir')}}</td>
+				</tr>
+				<tr>
+				  <td>Clouds Description</td>
+				  <td>{{temp.get('clouds')}}</td>
+				</tr>
+				<tr>
+				  <td>Pressure</td>
+				  <td>{{temp.get('press')}}</td>
+				</tr>
+				<tr>
+				  <td>Sea level pressure</td>
+				  <td>{{temp.get('slp')}}</td>
+				</tr>
+			</tbody>
+		</table>
+    </div>
+    <div class="col">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col"  colspan="2">Personal Info</th>
+			    </tr>
+				<tr>
+					<th scope="col">Tag</th>
+					<th scope="col">Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				  <td>Full Name</td>
+				  <td>{{ userDetails.full_name }}</td>
+				</tr>
+				<tr>
+				  <td>Age</td>
+				  <td>{{ userDetails.age }}</td>
+				</tr>
+				<tr>
+				  <td>Current Address</td>
+				  <td>{{ userDetails.address }}</td>
+				</tr>
+				<tr>
+				  <td>Education</td>
+				  <td>{{ userDetails.education }}</td>
+				</tr>
+				<tr>
+				  <td>Experience</td>
+				  <td>{{ userDetails.exp }}</td>
+				</tr>
+				<tr>
+				  <td>Athlete</td>
+				  <td>{{ userDetails.is_athelete }}</td>
+				</tr>
+				<tr>
+				  <td>Personal Hobbies</td>
+				  <td>{{ userDetails.hobbies }}</td>
+				</tr>
+			</tbody>
+		</table>
+    </div>
+  </div>
+</div>
+<!-- Script tags -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
